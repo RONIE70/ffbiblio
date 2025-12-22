@@ -25,7 +25,9 @@
         :root {
             --color-primary-blue: #0056b3; /* Azul Oscuro (Fondo Principal Heroe) */
             --color-highlight-blue: #1e90ff; /* Azul Brillante/Acento */
-            --color-neutral-dark: #003366; 
+            --color-neutral-dark: #001f66; 
+            --color-gris-background:#989898;
+
             --color-light-blue: #f0f8ff;
             --color-dark-background: #1c1c1c; /* Fondo Navbar Oscuro (Casi negro) */
         }
@@ -232,14 +234,19 @@
         /* Base y Sección de Navegación del Footer (Fondo Azul Muy Oscuro) */
         .styled__Footer-sc-c5zqxf-0.htZpYt {
             background-color: var(--color-footer-base) !important; /* Azul Oscuro 003366 */
-            padding-top: 3rem; 
+            padding-top: 2rem; 
             padding-bottom: 0;
+            
+        }
+        .styled__Footer-sc-c5zqxf-0 {
+            background-color: #1e90ff;
         }
 
         /* Estilo del Logo y Título en el Footer */
         .styled__Footer-sc-c5zqxf-0.htZpYt .styled__Text-sc-1qhsl9u-0.bmeWEU {
             color: #ffffff !important;
             font-weight: 700;
+            
         }
         
         /* Estilos de Títulos y Enlaces en el Footer */
@@ -248,6 +255,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; /* Separador sutil */
             padding-bottom: 2rem;
             text-decoration: none !important;
+            color: #1e90ff;
         }
 
         /* Títulos de columna del Footer (Navegación) */
@@ -465,6 +473,182 @@
     color: inherit !important;
     text-decoration: none !important;
 }
+
+/* ESTILO UNIFICADO PARA BOTONES: MENÚ, ACTIVIDADES Y BIBLIOTECA */
+.action-card__link a, 
+.styled__Button-sc-a6qa33-2.deOEVY,
+.styled__Menu-sc-xdixc-0.dlXIww a.styled__AStyled-sc-efe4a7-0 {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+    background-color: var(--color-dark-background) !important; /* Fondo casi negro */
+    color: #ffffff !important;
+    padding: 12px 30px !important;
+    border-radius: 50px !important; /* Forma de píldora profesional */
+    font-weight: 800 !important;
+    font-size: 14px !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* EFECTO HOVER ELEGANTE */
+.action-card__link a:hover, 
+.styled__Button-sc-a6qa33-2.deOEVY:hover,
+.styled__Menu-sc-xdixc-0.dlXIww a.styled__AStyled-sc-efe4a7-0:hover {
+    background-color: var(--color-highlight-blue) !important; /* Azul brillante */
+    transform: translateY(-3px); /* Elevación intuitiva */
+    box-shadow: 0 8px 20px rgba(30, 144, 255, 0.4);
+}
+
+/* RESET PARA EL BOTÓN DEL FORMULARIO */
+#section_inscription .styled__Button-sc-a6qa33-2.hdJzni {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary-blue) !important; /* Azul institucional */
+    color: #ffffff !important;
+    padding: 15px 40px !important;
+    border-radius: 4px !important; /* Rectangular con bordes suaves, no píldora */
+    font-weight: 800 !important;
+    font-size: 16px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none !important;
+    width: auto !important; /* No ocupa todo el ancho */
+    min-width: 200px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* HOVER ESPECÍFICO PARA EL BOTÓN DEL FORMULARIO */
+#section_inscription .styled__Button-sc-a6qa33-2.hdJzni:hover {
+    background-color: var(--color-neutral-dark) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* MANTENER EL ESPACIADO DE LOS INPUTS PROFESIONALES */
+.styled__Input-sc-1azvykq-1.ccjosk {
+    border: 1px solid #d0d0d0 !important;
+    padding: 12px 15px !important;
+    font-size: 16px !important;
+    border-radius: 4px !important; /* Coherencia con el botón del form */
+}
+
+/* ESTILO UNIFICADO PARA INPUTS Y SELECTS (DROPDOWNS) */
+.styled__Input-sc-1azvykq-1.ccjosk,
+select.styled__Input-sc-1azvykq-1.ccjosk {
+    width: 100%;
+    border: 1px solid #d0d0d0 !important;
+    background-color: #c5dce8 !important;
+    color: var(--color-form-text) !important;
+    padding: 12px 15px !important; /* Espacio interno amplio */
+    font-size: 16px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    border-radius: 4px !important; /* Borde rectangular suave (Coherencia con botón Enviar) */
+    transition: all 0.3s ease;
+    box-shadow: none !important;
+    height: 48px !important; /* Altura fija para alineación perfecta */
+}
+
+/* ESTILO ESPECÍFICO PARA ELIMINAR FLECHA POR DEFECTO Y PONER UNA PROPIA */
+select.styled__Input-sc-1azvykq-1.ccjosk {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    /* Flecha gris minimalista */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%234a4a4a%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 12px auto;
+    padding-right: 40px !important; /* Espacio extra para que el texto no toque la flecha */
+}
+
+/* AL FOCALIZAR (CLICK) */
+.styled__Input-sc-1azvykq-1.ccjosk:focus,
+select.styled__Input-sc-1azvykq-1.ccjosk:focus {
+    border-color: var(--color-primary-blue) !important;
+    outline: none;
+}
+
+/* ÁREA DE TEXTO (TEXTAREA) - Ajuste de altura */
+textarea.styled__Input-sc-1azvykq-1.ccjosk {
+    height: 120px !important;
+    resize: vertical;
+}
+
+.styled__Wrapper-sc-1f1vvzz-0 {
+    background-color: #c5dce8 !important;
+}
+
+ .styled__Menu-sc-c5zqxf-1 {
+background-color: #1c1c1c;
+}
+
+/* Definición de la animación de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Clase que aplicaremos a los elementos */
+.reveal-on-scroll {
+    opacity: 0; /* Empieza invisible */
+    transition: all 0.6s ease-out;
+}
+
+.reveal-on-scroll.active {
+    animation: fadeInUp 0.8s forwards;
+}
+
+/* =======================
+   SPONSORS SECTION
+======================= */
+.sponsors {
+  padding: 1rem 1rem;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.sponsors-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.sponsors-grid img {
+  max-width: 120px;
+  width: 100%;
+  margin: 0 auto;
+  filter: color(100%);
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.sponsors-grid img:hover {
+  filter: color(0%);
+  opacity: 1;
+}
+
     </style>
     
 </head>
@@ -548,9 +732,9 @@
                             </div>
 
                             <div class="styled__MenuItem-sc-12nlkq4-1 ivyAaL">
-                                <a class="styled__AStyled-sc-efe4a7-0 fXWfAH" href="#section_presentation">
+                                <a class="styled__AStyled-sc-efe4a7-0 fXWfAH" href="#section_marketing">
                                     <div class="styled__MenuComponent-sc-1arhukx-0 eGyfyU">
-                                        <span class="styled__Text-sc-1qhsl9u-0 bmeWEU">INICIO</span>
+                                        <span class="styled__Text-sc-1qhsl9u-0 bmeWEU">SPONSOR</span>
                                     </div>
                                 </a>
                             </div>
@@ -632,6 +816,23 @@
     </div>
     <div class="styled__StripePosition-sc-1wxkjhz-4 faEptO"></div>
 </div>
+        <!-- =======================
+     AUSPICIANTES / SPONSORS
+======================== -->
+<section class="sponsors">
+  <h3 class="sponsors-title">Nos acompañan </h3>
+
+  <div class="sponsors-grid">
+    <img src="https://pizzalomashot.com/img/LOGO-ANIVERSARIO.png" alt="Hot" />
+    <img src="https://scontent.feze7-1.fna.fbcdn.net/v/t39.30808-1/480801032_1037657778401450_4343986145609132235_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=1&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeF-ejsq9Eavc8aM-CLzZP1JUDRakP0rrHZQNFqQ_SusdqE7kDpdmly7nWcZBhypYmI&_nc_ohc=GNcz4NYzPQwQ7kNvwE3rnJu&_nc_oc=AdnuNIWroHxZdRdZoxbojjpOb70N7tIf35-W14LiXAQDmOegO837LWmc-NHCS8qXlDp7j4tVaehXXPYhjgROX7KK&_nc_zt=24&_nc_ht=scontent.feze7-1.fna&_nc_gid=2L7KpYeZ77HYu5AZ595-8Q&oh=00_AfnlHNyHWobjRab_7NZCPcN_HD4kztpYacGvaoU7oqsODw&oe=694EAADE" alt="grido" />
+    <img src="https://www.staticbp.com/img/inmobiliarias/000486/contarino_c.jpg" alt="Kanji" />
+    <img src="https://elbodegondelnautico.com.ar/wp-content/uploads/logo-213x72.webp" alt="Scienza" />
+    <img src="data:image/jpeg;base64,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" alt="Multiled" />
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjLkn4rLf85LiIRqUgZE_IzPOqyyOJaK0MgA&s" alt="Pardo" />
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0gMsmfQn_bQwLWKV5_oEmWlM24P13zzQczA&sg" alt="Kapi Coutas" />
+  </div>
+</section>
+
         <div>
             <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyVxSEZpgUqXTWByC89WjbdMvc4bPtg2tRKTAIPstVqf46qHV0LFZkWSCSg3hFslek5tsf-_pn6llGAqLNRzw-h_YEH6S39TX1QCxbBla8u4COT9zAFFoAQ4VOwrBdDlS7kuzFa=s1360-w1360-h1020-rw" alt="">
         </div>
@@ -803,7 +1004,7 @@
                     <div class="styled__Background-sc-3rsdx-2 gQvToe">
                         <div class="styled__Container-sc-1js1vjm-0 hdvoEO">
                             <div class="styled__Content-sc-1js1vjm-1 fhlqfr">
-                                <div class="styled__Content-sc-3rsdx-3 sxcYo" style="grid-template-columns: 1fr; gap: 3rem; padding-top: 3rem; padding-bottom: 3rem;">
+                                <div class="styled__Content-sc-3rsdx-3 sxcYo" style="grid-template-columns: 1fr; gap: 3rem; padding: 3rem; ">
                                     <div class="pathway__content-text">
                                         <h2 class="styled__Text-sc-1qhsl9u-0 djmnUW" style="color: #ffffff !important;">
                                             NUESTRA BIBLIO
@@ -856,9 +1057,9 @@
                             
                             <div id="section_contact" class="styled__Wrapper-sc-1f1vvzz-0 ctlBOR" style="padding: 2rem; background-color: var(--color-light-blue); border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);">
                                 <div class="styled__Content-sc-1f1vvzz-1 iHDoHu">
-                                    <h2 class="styled__Text-sc-1qhsl9u-0 djmnUW" style="color: var(--color-primary-blue);">
+                                    <h1 class="styled__Text-sc-1qhsl9u-0 djmnUW" style="color: var(--color-primary-blue);">
                                         ¡CONTÁCTANOS!
-                                    </h2>
+                                    </h1>
                                     <p class="styled__Text-sc-1qhsl9u-0 cTBwZi" style="color: var(--color-neutral-dark);">
                                         Si tienes preguntas sobre horarios, cuotas o quieres comenzar hoy, usa la información de abajo.
                                     </p>
@@ -867,7 +1068,7 @@
                                         
                                         <div class="admissions_content-grid-item">
                                             <div class="admissions_content-grid-item-line"></div>
-                                            <h4 class="styled__Text-sc-1qhsl9u-0 dbQnWT">TELÉFONO</h4>
+                                            <h3 class="styled__Text-sc-1qhsl9u-0 dbQnWT">TELÉFONO</h3>
                                             <p class="styled__Text-sc-1qhsl9u-0 cTBwZi">
                                                 Llámanos para consultas rápidas:
                                             </p>
@@ -877,7 +1078,7 @@
                                         </div>
                                         <div class="admissions_content-grid-item">
                                             <div class="admissions_content-grid-item-line"></div>
-                                            <h4 class="styled__Text-sc-1qhsl9u-0 dbQnWT">EMAIL</h4>
+                                            <h3 class="styled__Text-sc-1qhsl9u-0 dbQnWT">EMAIL</h3>
                                             <p class="styled__Text-sc-1qhsl9u-0 cTBwZi">
                                                 Escríbenos para consultas detalladas:
                                             </p>
@@ -937,8 +1138,16 @@
                                                         <label for="activity_interest" class="styles__Label-sc-kmi6xc-0 jblYNs">
                                                             <span class="styled__Text-sc-1qhsl9u-0 fIiwcR">Actividad de Interés</span>
                                                         </label>
-                                                        <div class="styled__InputAnchor-sc-1azvykq-0 dpppFH">
-                                                            <input type="text" name="activity_interest" id="activity_interest" placeholder="Ej: Futsal Femenino, Patín, Biblioteca" class="styled__Input-sc-1azvykq-1 ccjosk" />
+                                                        <div class="styled__InputBox-sc-1azvykq-4 ipRQum" style="display: block !important;">
+                                                            <select name="activity_interest" id="activity_interest" class="styled__Input-sc-1azvykq-1 ccjosk">
+                                                                <option value="" disabled selected>Selecciona una opción...</option>
+                                                                <option value="futsal_femenino">Futsal Femenino</option>
+                                                                <option value="futsal_masculino">Futsal Masculino</option>
+                                                                <option value="baby_futbol">Baby Fútbol</option>
+                                                                <option value="patin">Patinaje Artístico</option>
+                                                                <option value="telas">Acrobacia en Telas</option>
+                                                                <option value="otro">Otro</option>
+                                                            </select>
                                                         </div>
                                                     </div>
 
@@ -972,15 +1181,13 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="styled__ButtonContainer-sc-1x2top9-3 gsRqkU">
-                                                    <div class="styled__Root-sc-a6qa33-0 iFugtR">
-                                                        <button type="submit" class="styled__Button-sc-a6qa33-2 hdJzni">
-                                                            <span class="styled__Button-sc-a6qa33-2 hdJzni">
-                                                                <span style="color: #ffffff;">ENVIAR CONSULTA</span>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                </div>
+                                                <div class="styled__ButtonContainer-sc-1x2top9-3 gsRqkU" style="margin-top: 30px; display: flex; justify-content: flex-start;">
+    <button type="submit" class="styled__Button-sc-a6qa33-2 hdJzni">
+        <span class="styled__Text-sc-1qhsl9u-0 bmeWEU" style="color: #ffffff !important;">
+            ENVIAR CONSULTA
+        </span>
+    </button>
+</div>
                                             </form>
                                         </div>
                                     </div>
@@ -991,55 +1198,140 @@
                     </div>
                 </div>
             </div>
+<div id="section_marketing" style="background-color: var( --color-gris-background); padding: 6rem 0; border-top: 4px solid var(--color-highlight-blue);">
+    <div class="styled__Container-sc-1js1vjm-0 hdvoEO">
+        <div class="styled__Content-sc-1js1vjm-1 fhlqfr">
+            
+            <div class="styled__ColumnTitle-sc-1656qox-1" style="text-align: center; margin-bottom: 3.5rem;">
+                <h2 class="styled__Text-sc-1qhsl9u-0 djmnUW" style="font-size: 36px; color: #ffffff; letter-spacing: 1px;">
+                    MARKETING DIGITAL
+                </h2>
+                <p class="styled__Text-sc-1qhsl9u-0 fIiwcR" style="color: var(--color-footer-links); font-size: 18px; margin-top: 10px;">
+                    Impulsá tu marca junto a la comunidad de B.P.N.A.
+                </p>
+            </div>
+
+            <div  style="max-width: 850px; margin: 0 auto; background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 1rem; backdrop-filter: blur(10px);">
+                
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    
+                    <li style="display: flex; align-items: center; justify-content: space-between; padding: 1.8rem 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div style="width: 32px; height: 32px; background: rgba(30, 144, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="styled__Icon-sc-1656qox-0" style="color: var(--color-highlight-blue); font-size: 18px; font-weight: bold;">✓</i>
+                            </div>
+                            <span class="styled__Text-sc-1qhsl9u-0 bmeWEU" style="font-size: 19px; font-weight: 700; color: #ffffff;">¿Querés ser Sponsor?</span>
+                        </div>
+                        <a href="#section_contact_container" class="styled__AStyled-sc-efe4a7-0" style="text-decoration: none;">
+                            <span class="styled__MenuComponent-sc-1arhukx-0 eGyfyU" style="background-color: var(--color-highlight-blue); color: white; padding: 10px 24px; border-radius: 50px; font-size: 14px; font-weight: 800; text-transform: uppercase; transition: transform 0.2s;">CONSULTAR</span>
+                        </a>
+                    </li>
+
+                    <li style="display: flex; align-items: center; justify-content: space-between; padding: 1.8rem 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div style="width: 32px; height: 32px; background: rgba(30, 144, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="styled__Icon-sc-1656qox-0" style="color: var(--color-highlight-blue); font-size: 18px; font-weight: bold;">✓</i>
+                            </div>
+                            <span class="styled__Text-sc-1qhsl9u-0 bmeWEU" style="font-size: 19px; font-weight: 700; color: #ffffff;">Marketing Digital</span>
+                        </div>
+                        <a href="#section_contact_container" class="styled__AStyled-sc-efe4a7-0" style="text-decoration: none;">
+                            <span class="styled__MenuComponent-sc-1arhukx-0 eGyfyU" style="background-color: var(--color-highlight-blue); color: white; padding: 10px 24px; border-radius: 50px; font-size: 14px; font-weight: 800; text-transform: uppercase;">CONSULTAR</span>
+                        </a>
+                    </li>
+
+                    <li style="display: flex; align-items: center; justify-content: space-between; padding: 1.8rem 2rem;">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div style="width: 32px; height: 32px; background: rgba(30, 144, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="styled__Icon-sc-1656qox-0" style="color: var(--color-highlight-blue); font-size: 18px; font-weight: bold;">✓</i>
+                            </div>
+                            <span class="styled__Text-sc-1qhsl9u-0 bmeWEU" style="font-size: 19px; font-weight: 700; color: #ffffff;">Publicidad Soporte Físico</span>
+                        </div>
+                        <a href="#section_contact_container" class="styled__AStyled-sc-efe4a7-0" style="text-decoration: none;">
+                            <span class="styled__MenuComponent-sc-1arhukx-0 eGyfyU" style="background-color: var(--color-highlight-blue); color: white; padding: 10px 24px; border-radius: 50px; font-size: 14px; font-weight: 800; text-transform: uppercase;">CONSULTAR</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
         </main>
 
-        <footer class="styled__Footer-sc-c5zqxf-0 htZpYt">
-            <div class="styled__Menu-sc-c5zqxf-1 goIRgB">
-                <div class="styled__Container-sc-1js1vjm-0 hdvoEO">
-                    <div class="styled__Content-sc-1js1vjm-1 fhlqfr">
-                        <div class="styled__MenuLayout-sc-c5zqxf-2 isequT">
-                            <div class="styled__LogoSpacer-sc-c5zqxf-3 dYnnJr">
-                                <div class="styled__Logo-sc-bd6ij4-0 eVgvhL">
-                                    <a class="styled__AStyled-sc-efe4a7-0 hXrSfz" href="/" style="display: flex; align-items: center;">
-                                        <img src="./img/biblioteca.png" alt="Logo B.P.N.A." style="width: 50px; height: 50px; margin-right: 10px;">
-                                        <span class="styled__Text-sc-1qhsl9u-0 bmeWEU">B.P.N.A.</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="styled__LocalPrograms-sc-s4jfa8-2 cwFDhe">
-                                <div class="styled__MenuItem-sc-s4jfa8-6 iwwFeF">
-                                    <span class="styled__Text-sc-1qhsl9u-0 fIiwcR">Navegación</span>
-                                </div>
-                                <ul class="styled__SubMenu-sc-s4jfa8-7 jxTwMd">
-                                    <li class="styled__SubMenuItem-sc-s4jfa8-8 jIvLXX"><a class="styled__AStyled-sc-efe4a7-0 hXrSfz" href="#section_activities_list"><span class="styled__Text-sc-1qhsl9u-0 fIiwcR">Actividades Deportivas</span></a></li>
-                                    <li class="styled__SubMenuItem-sc-s4jfa8-8 jIvLXX"><a class="styled__AStyled-sc-efe4a7-0 hXrSfz" href="#section_library"><span class="styled__Text-sc-1qhsl9u-0 fIiwcR">Biblioteca y Cultura</span></a></li>
-                                    <li class="styled__SubMenuItem-sc-s4jfa8-8 jIvLXX"><a class="styled__AStyled-sc-efe4a7-0 hXrSfz" href="#section_contact"><span class="styled__Text-sc-1qhsl9u-0 fIiwcR">Inscripción y Contacto</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
+        <footer class="styled__Footer-sc-c5zqxf-0 htZpYt" style="background-color: var(--color-dark-background) !important; padding-top: 4rem;">
+    <div class="styled__Container-sc-1js1vjm-0 hdvoEO">
+        <div class="styled__Content-sc-1js1vjm-1 fhlqfr">
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-bottom: 3rem;">
+                
+                <div class="footer-column">
+                    <div class="styled__Logo-sc-bd6ij4-0 eVgvhL" style="margin-bottom: 20px;">
+                        <a href="/" style="display: flex; align-items: center; text-decoration: none;">
+                            <img src="./img/biblioteca.png" alt="Logo B.P.N.A." style="width: 60px; height: 60px; margin-right: 12px;">
+                            <span class="styled__Text-sc-1qhsl9u-0 bmeWEU" style="color: #ffffff !important; font-size: 20px; font-weight: 800;">B.P.N.A.</span>
+                        </a>
+                    </div>
+                    <p style="color: var(--color-highlight-blue); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
+                        El corazón del barrio latiendo en cada rincón. Sumate a nuestra comunidad deportiva y cultural.
+                    </p>
+                    <div style="display: flex; gap: 15px;">
+                        <img src="https://chile.gridohelado.com/wp-content/themes/grido/images/facebook.svg"   href="#" style="width:5%;"><i class="icon-facebook"></i></img>
+                        <img src="https://chile.gridohelado.com/wp-content/themes/grido/images/instagram.svg" style="width:7%;"><i class="icon-instagram"></i></img>
+                        <img src="https://chile.gridohelado.com/wp-content/themes/grido/images/tiktok.svg" style="width:7%;"><i class="icon-twitter"></i></img>
+                        <img src="https://chile.gridohelado.com/wp-content/themes/grido/images/youtube.svg"   href="#" style="width:5%;"><i class="icon-facebook"></i></img>
+                        <img src="https://chile.gridohelado.com/wp-content/themes/grido/images/twitter.svg" style="width:7%;"><i class="icon-instagram"></i></img>
+                        
                     </div>
                 </div>
-            </div>
-            <div class="styled__Copyright-sc-c5zqxf-4 ksVBiF">
-                <div class="styled__Container-sc-1js1vjm-0 hdvoEO">
-                    <div class="styled__Content-sc-1js1vjm-1 fhlqfr">
-                        <div class="styled__Layout-sc-v30z3c-0 gtFsAw">
-                            <div class="styled__Menu-sc-v30z3c-2 cxoDCF">
-                                <div class="styled__MenuItem-sc-v30z3c-3 dlHHDT">
-                                    <a class="styled__AStyled-sc-efe4a7-0 hXrSfz" href="/politica-de-privacidad"><span class="styled__Text-sc-1qhsl9u-0 fIiwcR">Política de privacidad</span></a>
-                                </div>
-                                <div class="styled__MenuItem-sc-v30z3c-3 dlHHDT">
-                                    <a class="styled__AStyled-sc-efe4a7-0 hXrSfz" href="/aviso-legal"><span class="styled__Text-sc-1qhsl9u-0 fIiwcR">Aviso legal</span></a>
-                                </div>
-                            </div>
-                            <div class="styled__Copyright-sc-v30z3c-1 dNjKJA">
-                                <span class="styled__Text-sc-1qhsl9u-0 iIkNfv">Biblioteca Popular Nicolás Avellaneda © | Derechos reservados</span>
-                            </div>
-                        </div>
+
+                <div class="footer-column">
+                    <h4 class="styled__Text-sc-1qhsl9u-0 fIiwcR" style="color: #ffffff !important; font-weight: 700; margin-bottom: 20px; font-size: 18px;">MAPA DEL SITIO</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;"><a href="#section_presentation" style="color: var(--color-highlight-blue); text-decoration: none;">Inicio</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#section_activities_list" style="color: var(--color-highlight-blue); text-decoration: none;">Actividades</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#section_marketing" style="color: var(--color-highlight-blue); text-decoration: none;">Sponsors</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#section_library" style="color: var(--color-highlight-blue); text-decoration: none;">Biblioteca</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#section_contact_container" style="color: var(--color-highlight-blue); text-decoration: none;">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="styled__Text-sc-1qhsl9u-0 fIiwcR" style="color: #ffffff !important; font-weight: 700; margin-bottom: 15px; font-size: 18px;">NUESTRA SEDE</h4>
+                    
+                    <div style="width: 100%; height: 150px; border-radius: 8px; overflow: hidden; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.9546261596775!2d-58.3846618!3d-34.6810795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccce59868e82f%3A0x6b1f2b6e15998a4!2sPi%C3%B1eiro%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
                     </div>
+
+                    <p style="color: var(--color-footer-links); font-size: 13px; margin-bottom: 15px;">
+                        Visitanos en nuestra sede central de Piñeiro.
+                    </p>
+                    
+                    <a href="#section_contact_container" style="text-decoration: none;">
+                        <button class="styled__Button-sc-a6qa33-2 deOEVY" style="width: 100%; border-radius: 50px; background-color: var(--color-highlight-blue) !important; color: white !important; font-weight: 700; border: none; padding: 10px;">
+                            QUIERO ASOCIARME
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding: 20px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 20px;">
+                        <a href="/politica" style="color: var(--color-footer-links); font-size: 12px; text-decoration: none;">Privacidad</a>
+                        <a href="/legal" style="color: var(--color-footer-links); font-size: 12px; text-decoration: none;">Aviso legal</a>
+                    </div>
+                    <span style="color: var(--color-footer-links); font-size: 12px;">B.P.N.A. © 2025 | Todos los derechos reservados</span>
                 </div>
             </div>
-        </footer>
+
+        </div>
+    </div>
+</footer>
         <div class="styled__Overlay-sc-h8h5yx-0 gFFWiA"><div></div></div>
     </div>
     <div id="fixed-contact" class="styled__FixedContact-sc-1z3h1y0-0">
