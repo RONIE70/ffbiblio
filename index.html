@@ -179,6 +179,29 @@
             text-align: center;
             /* Permite que la pestaña se superponga a la tarjeta para el efecto visual */
             margin-bottom: -6px; 
+            border-color: #f0f8ff !important;
+        }
+
+        .styled__FloatingTab-sc-1z3h1y0-20 {
+            background-color: #ffffff;
+            color: var(--color-primary-blue);
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            width: 150px;
+            text-align: center;
+            display: flex; 
+            position: relative; 
+            padding: 12px 24px;
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            text-decoration: none !important;
+            top:-3.5rem;
+            border-radius: 1rem;
+            box-shadow: -4px 0 10px rgba(3, 14, 88, 0.1);
+            opacity:2;
+            /* Permite que la pestaña se superponga a la tarjeta para el efecto visual */
+             
         }
 
         /* Estilos del texto y botón dentro de la tarjeta */
@@ -260,9 +283,240 @@
              color: var(--color-footer-links) !important;
              font-size: 0.8rem;
         }
+
+        /* 1. CONTENEDOR DEL MENÚ: AJUSTE DE ALTURA Y ESPACIADO */
+.styled__Menu-sc-xdixc-0.dlXIww {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end; 
+    gap: 15px; /* Espacio entre los botones */
+    padding: 15px 20px !important; /* Más altura para el NavBar */
+}
+
+/* 2. TRANSFORMACIÓN DE LOS LINKS EN BOTONES REDONDEADOS */
+.styled__Menu-sc-xdixc-0.dlXIww a.styled__AStyled-sc-efe4a7-0 {
+    text-decoration: none !important;
+    background-color: var(--color-dark-background) !important; /* Fondo casi negro */
+    color: #ffffff !important;
+    padding: 12px 25px !important; /* Botones más altos y anchos */
+    border-radius: 50px !important; /* Estilo píldora como en la imagen */
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil para elegancia */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3. EFECTO HOVER PROFESIONAL */
+.styled__Menu-sc-xdixc-0.dlXIww a.styled__AStyled-sc-efe4a7-0:hover {
+    background-color: var(--color-highlight-blue) !important; /* Cambia a azul brillante */
+    color: #ffffff !important;
+    transform: translateY(-2px); /* Pequeña elevación intuitiva */
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3); /* Sombra suave azul */
+}
+
+/* 4. AJUSTE PARA EL TEXTO INTERNO */
+.styled__Menu-sc-xdixc-0.dlXIww .styled__Text-sc-1qhsl9u-0.bmeWEU {
+    color: inherit !important; /* Hereda el blanco del botón */
+    border-bottom: none !important; /* Quitamos la línea de antes */
+    padding-bottom: 0 !important;
+}
+
+/*VENTANA MODAL LOGIN*/
+/* ESTILOS DEL MODAL */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #ffffff;
+    width: 90%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 20px;
+    position: relative;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+/* Reutilizamos los estilos del formulario profesional */
+.auth-input {
+    width: 100%;
+    padding: 14px 20px !important;
+    margin: 10px 0 20px 0;
+    border: 1px solid #d0d0d0 !important;
+    border-radius: 50px !important; /* Estilo píldora */
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 16px !important;
+}
+
+.btn-auth-full {
+    width: 100%;
+    background-color: var(--color-primary-blue);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-auth-full:hover {
+    background-color: var(--color-neutral-dark);
+    transform: scale(1.02);
+}
+
+/* NAVEGACIÓN DE PESTAÑAS DENTRO DEL MODAL */
+.auth-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.auth-tab {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    color: #999;
+    transition: color 0.3s;
+}
+
+.auth-tab.active {
+    color: var(--color-primary-blue);
+    border-bottom: 2px solid var(--color-primary-blue);
+    padding-bottom: 8px;
+}
+
+/* Ocultar secciones dinámicamente */
+.auth-section {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.auth-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* TRANSFORMACIÓN DE ENLACES DE TARJETAS EN BOTONES TIPO PÍLDORA */
+.action-card__link a, 
+.styled__Layout-sc-1eqtrnx-3.fQfzWX {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+    background-color: var(--color-dark-background) !important; /* Fondo casi negro */
+    color: #ffffff !important;
+    padding: 10px 25px !important;
+    border-radius: 50px !important; /* Estilo píldora idéntico al menú */
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    margin-top: 15px;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+/* EFECTO HOVER PARA LOS BOTONES DE ACTIVIDADES */
+.action-card__link a:hover, 
+.styled__Layout-sc-1eqtrnx-3.fQfzWX:hover {
+    background-color: var(--color-highlight-blue) !important; /* Cambia a azul brillante */
+    transform: translateY(-3px); /* Elevación intuitiva */
+    box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4); /* Sombra elegante */
+}
+
+/* AJUSTE PARA EL TEXTO INTERNO DENTRO DE LOS BOTONES */
+.action-card__link span, 
+.styled__Text-sc-1qhsl9u-0.bmeWEU {
+    color: inherit !important;
+    text-decoration: none !important;
+}
     </style>
     
 </head>
+
+<div id="loginModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeLogin()">&times;</span>
+        
+        <div class="auth-tabs">
+            <div id="tab-login" class="auth-tab active" onclick="showAuthSection('login')">INICIAR SESIÓN</div>
+            <div id="tab-register" class="auth-tab" onclick="showAuthSection('register')">CREAR CUENTA</div>
+        </div>
+
+        <div id="section-login" class="auth-section active">
+            <p style="text-align: center; color: #666; font-size: 14px; margin-bottom: 20px;">Bienvenido a B.P.N.A.</p>
+            <form>
+                <label style="font-weight: 700; font-size: 12px; margin-left: 15px;">CORREO ELECTRÓNICO</label>
+                <input type="email" class="auth-input" placeholder="ejemplo@correo.com" required>
+                
+                <label style="font-weight: 700; font-size: 12px; margin-left: 15px;">CONTRASEÑA</label>
+                <input type="password" class="auth-input" placeholder="••••••••" required>
+                
+                <button type="submit" class="btn-auth-full">ENTRAR</button>
+            </form>
+        </div>
+
+        <div id="section-register" class="auth-section">
+            <p style="text-align: center; color: #666; font-size: 14px; margin-bottom: 20px;">Únete a nuestra comunidad.</p>
+            <form>
+                <label style="font-weight: 700; font-size: 12px; margin-left: 15px;">NOMBRE COMPLETO</label>
+                <input type="text" class="auth-input" placeholder="Tu nombre..." required>
+
+                <label style="font-weight: 700; font-size: 12px; margin-left: 15px;">CORREO ELECTRÓNICO</label>
+                <input type="email" class="auth-input" placeholder="ejemplo@correo.com" required>
+                
+                <label style="font-weight: 700; font-size: 12px; margin-left: 15px;">CONTRASEÑA</label>
+                <input type="password" class="auth-input" placeholder="Crear contraseña" required>
+                
+                <button type="submit" class="btn-auth-full">REGISTRARME</button>
+            </form>
+        </div>
+
+        <div class="auth-divider" style="margin: 20px 0; text-align: center; color: #ccc; font-size: 12px;"> O CONTINUAR CON </div>
+
+        <button class="btn-google" style="width:100%; border-radius:50px; padding:12px; border:1px solid #ddd; background:white; display:flex; align-items:center; justify-content:center; gap:10px; cursor:pointer; font-weight:600; font-family:'Montserrat';">
+            <img src="https://images.icon-icons.com/2699/PNG/512/google_tile_logo_icon_170069.png" width="20">
+            Google
+        </button>
+    </div>
+</div>
+
+
 <body>
     <div id="__next">
         <header class="styled__Header-sc-1p531bp-0 cjbqjg">
@@ -312,7 +566,7 @@
                             <div class="styled__MenuItem-sc-12nlkq4-1 ivyAaL">
                                 <a class="styled__AStyled-sc-efe4a7-0 fXWfAH" href="#section_library">
                                     <div class="styled__MenuComponent-sc-1arhukx-0 eGyfyU">
-                                        <span class="styled__Text-sc-1qhsl9u-0 bmeWEU">TALLERES</span>
+                                        <span class="styled__Text-sc-1qhsl9u-0 bmeWEU">ALQUILERES</span>
                                     </div>
                                 </a>
                             </div>
@@ -321,6 +575,13 @@
                                 <a class="styled__AStyled-sc-efe4a7-0 fXWfAH" href="#contact_container_grid">
                                     <div class="styled__MenuComponent-sc-1arhukx-0 eGyfyU">
                                         <span class="styled__Text-sc-1qhsl9u-0 bmeWEU">CONTACTO</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="styled__MenuItem-sc-12nlkq4-1 ivyAaL">
+                                <a class="styled__AStyled-sc-efe4a7-0 fXWfAH" href="javascript:void(0)" onclick="openLogin()">
+                                    <div class="styled__MenuComponent-sc-1arhukx-0 eGyfyU">
+                                        <span class="styled__Text-sc-1qhsl9u-0 bmeWEU">INGRESAR</span>
                                     </div>
                                 </a>
                             </div>
@@ -343,7 +604,7 @@
                 <div style="display: grid; grid-template-columns: 200px 1fr; gap: 30px; align-items: flex-start;">
 
                     <div class="styled__Layout-sc-1wxkjhz-1 bBOojU" style="padding-top: 1.5rem; align-items: center;">
-                        <img src="./img/biblioteca.png" alt="Logo B.P.N.A." style="width: 150px; margin-bottom: 10px; border-radius: 50%; margin-left: 30px;">
+                        <img src="./img/biblioteca.png" alt="Logo B.P.N.A." style="width: 150px; margin-bottom: 10px; border-radius: 50%; margin-left: 40px;">
                         <div class="styles__Breadcrumb-sc-1jb2a39-0 kQNMqH" style="text-align: center;">
                             <span class="styled__Text-sc-1qhsl9u-0 fIiwcR">Desde 1932</span>
                         </div>
@@ -357,17 +618,13 @@
                         <p class="styled__Text-sc-1qhsl9u-0 hlpNNq" style="margin-top: 20px;">
                             El corazón del barrio. Latiendo en cada rincón, transformando cada sueño en una pasión compartida.
                         </p>
-                        <div class="styled__ButtonLayout-sc-1wxkjhz-2 xEaTk" style="margin-top: -50px; position: relative; z-index: 10;">
-                            <a href="#section_activities_list" class="styled__WrapperLinkAnchor-sc-1umnb0k-0 gAjYXL">
-                                <div class="styled__Root-sc-a6qa33-0 MgxfR" style="display: flex; justify-content: flex-end; padding-right: 5%;">
-                                    <button class="styled__FloatingTab-sc-1z3h1y0-2" style="padding: 12px 24px; border-radius: 4px; font-weight: 700; cursor: pointer; transition: all 0.3s ease ">
-                                        <span class="styled__Button-sc-a6qa33-2.hdJzni" >
-                                            <span>DESCUBRÍ NUESTRAS ACTIVIDADES</span>
-                                        </span>
-                                    </button>
-                                </div>
-                            </a>
-                        </div>
+                       <div class="styled__ButtonLayout-sc-1wxkjhz-2 xEaTk" style="margin-top: 30px;">
+                        <a href="#section_activities_list" style="text-decoration: none;">
+                            <button class="styled__Button-sc-a6qa33-2 deOEVY" style="display:flex; position: relative; bottom: 0.5rem; background-color: #ffffff; color: var(--color-primary-blue); padding: 12px 30px; border-radius: 4px; font-weight: 800; border: none; cursor: pointer;">
+                                DESCUBRÍ NUESTRAS ACTIVIDADES
+                            </button>
+                        </a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -389,20 +646,20 @@
                         </div>
                         <div class="styled__Description-sc-rxiit5-2 kORfqY">
                             <span class="styled__Text-sc-1qhsl9u-0 gGzoWk">
-                                Fomentamos la salud, el arte y la comunidad con una amplia oferta deportiva y cultural.
+                                Fomentamos la salud, la disciplina y la vida en comunidad con una amplia oferta deportiva.
                             </span>
                         </div>
                         <div class="styled__Layout-sc-rxiit5-3 jMaOFD">
 
                             <div class="styled__WrapperActionCard-sc-1xbx10x-0 czYITd">
                                 <div class="styled__ImageWrapper-sc-1xbx10x-1 YpQOs" style="background-color: var(--color-primary-blue);">
-                                    <h3 style="color: #ffffff; padding: 20px;">FUTSAL</h3>
+                                    <h3 style="color: #ffffff; padding: 20px;">FUTSAL | Femenino y Masculino</h3>
                                 </div>
                                 <div class="styled__BodyActionCard-sc-1xbx10x-2 kwKvhc">
                                     <div class="action-card__body-content-text">
-                                        <h3 class="styled__Text-sc-1qhsl9u-0 dbQnWT">FUTSAL | Femenino y Masculino</h3>
+                                        <h3 class="styled__Text-sc-1qhsl9u-0 dbQnWT">ARGENLIGA - Ambas Ramas <br> <br>Ligas regionales: Rama Femenina</h3>
                                         <p class="styled__Text-sc-1qhsl9u-0 gZriHq">
-                                            Entrenamiento y competición para todas las categorías. Nuestros equipos equipos compiten en diferentes Ligas.
+                                            Entrenamiento y competición para todas las categorías. Nuestros equipos equipos compiten todo el año.
                                         </p>
                                         <ul style="list-style-type: disc; padding-left: 20px;">
                                             <li><span class="styled__Text-sc-1qhsl9u-0 cTBwZi">Futsal Femenino (Mayores e Infantiles)</span></li>
@@ -410,18 +667,18 @@
                                         </ul>
                                     </div>
                                     <div class="action-card__link">
-                                        <a class="styled__AStyled-sc-efe4a7-0 hXrSfz" href="#section_contact">
-                                            <div class="styled__Layout-sc-1eqtrnx-3 fQfzWX">
-                                                <span class="styled__Text-sc-1qhsl9u-0 bmeWEU">Consultar Horarios</span>
-                                            </div>
+                                        <a href="#section_contact_container">
+                                            <span>Consultar Horarios</span>
                                         </a>
                                     </div>
+
+
                                 </div>
                             </div>
 
                             <div class="styled__WrapperActionCard-sc-1xbx10x-0 czYITd">
                                 <div class="styled__ImageWrapper-sc-1xbx10x-1 YpQOs" style="background-color: var(--color-highlight-blue);">
-                                    <h3 style="color: #ffffff; padding: 20px;">INFANTIL</h3>
+                                    <h3 style="color: #ffffff; padding: 20px;">FUTBOL INFANTIL</h3>
                                 </div>
                                 <div class="styled__BodyActionCard-sc-1xbx10x-2 kwKvhc">
                                     <div class="action-card__body-content-text">
@@ -435,10 +692,8 @@
                                         </ul>
                                     </div>
                                     <div class="action-card__link">
-                                        <a class="styled__AStyled-sc-efe4a7-0 hXrSfz" href="#section_inscription">
-                                            <div class="styled__Layout-sc-1eqtrnx-3 fQfzWX">
-                                                <span class="styled__Text-sc-1qhsl9u-0 bmeWEU">Inscribir a mi hijo/a</span>
-                                            </div>
+                                        <a href="#section_contact_container">
+                                            <span>Inscribir a mi hijo/a</span>
                                         </a>
                                     </div>
                                 </div>
@@ -461,10 +716,8 @@
                                         </ul>
                                     </div>
                                     <div class="action-card__link">
-                                        <a class="styled__AStyled-sc-efe4a7-0 hXrSfz" href="#section_contact">
-                                            <div class="styled__Layout-sc-1eqtrnx-3 fQfzWX">
-                                                <span class="styled__Text-sc-1qhsl9u-0 bmeWEU">Más Información</span>
-                                            </div>
+                                        <a href="#section_contact">
+                                            <span>Más Información</span>
                                         </a>
                                     </div>
                                 </div>
@@ -494,12 +747,12 @@
                                 </div>
                                 <div class="styled__Title-sc-16vgbmb-2 chJqDW">
                                     <h3 class="styled__Text-sc-1qhsl9u-0 dbQnWT">
-                                        LIGA DE COMPETENCIA
+                                        COMPETENCIAS 
                                     </h3>
                                 </div>
                                 <div class="styled__Panel-sc-16vgbmb-3 clggRN">
                                     <p class="styled__Text-sc-1qhsl9u-0 cTBwZi">
-                                        Nuestros equipos de Futsal Femenino y Masculino participan activamente en las ligas regionales, promoviendo el deporte de alto nivel y el juego limpio.
+                                        Nuestros equipos de Futsal Femenino y Masculino, como así también el baby fútbol participan activamente en las ligas, promoviendo el deporte de alto nivel y el juego limpio.
                                     </p>
                                 </div>
                             </div>
@@ -515,7 +768,7 @@
                                 </div>
                                 <div class="styled__Panel-sc-16vgbmb-3 clggRN">
                                     <p class="styled__Text-sc-1qhsl9u-0 cTBwZi">
-                                        Competencias zonales. Muestras de la disciplina. Infantiles y Adultos.
+                                        Diferentes niveles. Competencias zonales. Muestras de la disciplina. Infantiles y Adultas.
                                     </p>
                                 </div>
                             </div>
@@ -552,43 +805,39 @@
                             <div class="styled__Content-sc-1js1vjm-1 fhlqfr">
                                 <div class="styled__Content-sc-3rsdx-3 sxcYo" style="grid-template-columns: 1fr; gap: 3rem; padding-top: 3rem; padding-bottom: 3rem;">
                                     <div class="pathway__content-text">
-                                        <h2 class="styled__Text-sc-1qhsl9u-0 djmnUW" style="color: #ffffff;">
+                                        <h2 class="styled__Text-sc-1qhsl9u-0 djmnUW" style="color: #ffffff !important;">
                                             NUESTRA BIBLIO
                                         </h2>
                                     </div>
                                     <div class="pathway_content-grid" style="grid-template-columns: 1fr; gap: 2rem;">
                                         <div class="pathway_content-grid-text">
-                                            <h3 class="styled__Text-sc-1qhsl9u-0 kVOwYA" style="color: #ffffff;">
+                                            <h3 class="styled__Text-sc-1qhsl9u-0 kVOwYA" style="color: #ffffff !important;">
                                                 Un lugar donde nos sentimos a gusto
                                             </h3>
                                             <p class="styled__Text-sc-1qhsl9u-0 hHLbwf" style="color: #f0f8ff;">
                                                 Somos un pilar en la vida de los vecinos de Villa Castellino. Ofrecemos un espacio de acceso para toda la comunidad.
                                             </p>
                                             <ul style="color: #f0f8ff; list-style-type: none; padding-left: 0;">
-                                                <li style="margin-bottom: 0.5rem;"><i style="color: #1e90ff; margin-right: 10px;">•</i> Alquiler de Canchas</li>
-                                                <li style="margin-bottom: 0.5rem;"><i style="color: #1e90ff; margin-right: 10px;">•</i> Alquiler de Salón para eventos</li>
-                                                <li style="margin-bottom: 0.5rem;"><i style="color: #1e90ff; margin-right: 10px;">•</i> Alquiler de las instalcaiones</li>
+                                                <li style="margin-bottom: 0.5rem;"><i style="color: #1e90ff; margin-right: 10px;">•</i> Alquiler de Canchas. Contamos con dos diponibles.</li>
+                                                <li style="margin-bottom: 0.5rem;"><i style="color: #1e90ff; margin-right: 10px;">•</i> Alquiler de Salón para eventos con entrada particular</li>
+                                                <li style="margin-bottom: 0.5rem;"><i style="color: #1e90ff; margin-right: 10px;">•</i> Alquiler de las instalaciones para Eventos multitudinarios</li>
                                             </ul>
                                         </div>
                                         <div class="pathway_content-grid-image">
                                             <div class="styled__Ratio-sc-5ky374-0 ljDiVH">
                                                 <div class="styled__Content-sc-5ky374-1 gIAENM">
-                                                    <img src="./img/library-image.jpg" alt="Biblioteca Popular Nicolás Avellaneda" style="object-fit: cover; width: 100%; height: 100%;">
+                                                    <img src="./img/biblioteca.png" alt="Logo B.P.N.A." style="width: 150px; margin-bottom: 10px; border-radius: 50%; margin-left: 40px;">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div style="margin-top: 2rem;">
-                                        <a href="URL_A_HAZTE_SOCIO" class="styled__WrapperLinkAnchor-sc-1umnb0k-0 gAjYXL">
-                                            <div class="styled__Root-sc-a6qa33-0 iFugtR">
-                                                <button class="styled__Button-sc-a6qa33-2 hdJzni" style="background-color: #ffffff; color: #0056b3;">
-                                                    <span class="styled__Button-sc-a6qa33-2.hdJzni">
-                                                        <span>HACETE SOCIO DE LA BIBLIO!!</span>
-                                                    </span>
-                                                </button>
-                                            </div>
+                                   <div class="action-card__link">
+                                        <a class="styled__AStyled-sc-efe4a7-0 fXWfAH" href="javascript:void(0)" onclick="openLogin()">
+                                            <span>HACETE SOCIO!!</span>
                                         </a>
                                     </div>
+                                </a>
+                            </div>
                                 </div>
                             </div>
                         </div>
@@ -837,7 +1086,48 @@
         document.getElementById('floating-tab').onclick = function() {
             window.location.href = '#section_inscription';
         };
-    </script>
+
+        function showAuthSection(type) {
+    // Resetear clases activas en pestañas
+    document.getElementById('tab-login').classList.remove('active');
+    document.getElementById('tab-register').classList.remove('active');
+    
+    // Resetear visibilidad de secciones
+    document.getElementById('section-login').classList.remove('active');
+    document.getElementById('section-register').classList.remove('active');
+
+    // Activar la seleccionada
+    if (type === 'login') {
+        document.getElementById('tab-login').classList.add('active');
+        document.getElementById('section-login').classList.add('active');
+    } else {
+        document.getElementById('tab-register').classList.add('active');
+        document.getElementById('section-register').classList.add('active');
+    }
+}
+
+    // Función para mostrar el modal
+    function openLogin() {
+        const modal = document.getElementById('loginModal');
+        modal.style.display = 'flex'; // Cambia de 'none' a 'flex' para que se vea
+    }
+
+    // Función para ocultar el modal
+    function closeLogin() {
+        const modal = document.getElementById('loginModal');
+        modal.style.display = 'none'; // Lo vuelve a ocultar
+    }
+
+    // Cerrar automáticamente si el usuario hace clic en el fondo oscuro
+    window.onclick = function(event) {
+        const modal = document.getElementById('loginModal');
+        if (event.target == modal) {
+            closeLogin();
+        }
+    }
+</script>
+
+    
     
     <div class="styled__Overlay-sc-h8h5yx-0 gFFWiA"><div></div></div>
 </div>
