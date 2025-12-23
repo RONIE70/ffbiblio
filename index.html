@@ -32,6 +32,58 @@
             --color-dark-background: #1c1c1c; /* Fondo Navbar Oscuro (Casi negro) */
         }
 
+        /* AJUSTE UNIVERSAL PARA COLUMNAS EN MÓVIL */
+@media (max-width: 768px) {
+    /* Fuerza a que cualquier div que use grid-template-columns pase a 1 columna */
+    [style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* Específico para Sponsors [cite: 242-245] */
+    .sponsors-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 filas de logos en móvil */
+        gap: 1.5rem !important;
+    }
+
+    /* Específico para la sección de Referencias [cite: 507, 553] */
+    div[style*="display: flex; gap: 2rem;"] {
+        flex-direction: column !important;
+    }
+
+    /* Específico para el Contacto e Inscripción  */
+    #contact_container_grid > div > div > div,
+    #section_inscription form {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* COMPORTAMIENTO DEL MENÚ EN MÓVIL [cite: 98-112] */
+@media (max-width: 1024px) {
+    /* Ocultamos el menú por defecto */
+    .styled__Menu-sc-xdixc-0 {
+        display: none; 
+        position: absolute;
+        top: 100%; /* Aparece debajo del header [cite: 102] */
+        left: 0;
+        right: 0;
+        background: #1c1c1c; /* Fondo oscuro [cite: 105] */
+        flex-direction: column !important; /* Lista vertical [cite: 106] */
+        padding: 20px;
+        z-index: 1000;
+    }
+
+    /* Mostramos el menú cuando se hace clic (clase active) [cite: 110-112] */
+    .styled__Menu-sc-xdixc-0.active {
+        display: flex !important;
+    }
+
+    /* El botón hamburguesa se hace visible [cite: 113-116] */
+    .styled__Hamburguer-sc-1p531bp-3 {
+        display: flex !important;
+    }
+}
+
         /* APLICACIÓN GLOBAL DE FUENTE Y ESTILO DE TEXTO */
         body {
              font-family: 'Montserrat', sans-serif !important; /* Se aplica Montserrat */
@@ -649,9 +701,248 @@ background-color: #1c1c1c;
   opacity: 1;
 }
 
+/* ===============================
+   FIX RESPONSIVE GLOBAL
+================================ */
+
+/* Evita problemas de ancho invisibles */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   HERO GRID FIX
+================================ */
+
+/* Desktop intacto */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 30px;
+}
+
+/* Mobile real */
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .hero-grid img {
+    margin: 0 auto;
+  }
+}
+
+/* ===============================
+   HERO TEXT SCALE
+================================ */
+
+.hero-title {
+  font-size: clamp(28px, 6vw, 48px);
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 4vw, 26px);
+}
+
+/* ===============================
+   IMAGE SAFETY NET
+================================ */
+
+img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* ===============================
+   FIXED CONTACT (EL PROBLEMA REAL)
+================================ */
+/* CONTENEDOR PRINCIPAL FIJO */
+.styled__FixedContact-sc-1z3h1y0-0 {
+  position: fixed;
+  right: 20px;
+  bottom: 0; /* Pegado al fondo */
+  z-index: 1000;
+  /* Se oculta hacia abajo, dejando solo la solapa visible (aprox 40px) */
+  transform: translateY(calc(100% - 40px)); 
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cuando tiene la clase 'active', emerge completamente */
+.styled__FixedContact-sc-1z3h1y0-0.active {
+  transform: translateY(0);
+}
+
+/* LA SOLAPA (Lo único que se ve al inicio) */
+/* LA SOLAPA (Ajuste de color y visibilidad) */
+.styled__FloatingTab-sc-1z3h1y0-2 {
+  background-color: var(--color-neutral-dark) !important; /* Azul sólido institucional [cite: 77] */
+  color: #ffffff !important; /* Texto blanco puro para máxima legibilidad [cite: 83] */
+  padding: 12px 25px;
+  border-radius: 10px 10px 0 0; /* Bordes redondeados solo arriba [cite: 191] */
+  cursor: pointer;
+  text-align: center;
+  font-weight: 800; /* Texto bien marcado [cite: 153] */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.2); /* Sombra para que parezca que emerge [cite: 192] */
+  border: 1px solid rgba(255,255,255,0.1);
+  border-bottom: none;
+}
+
+/* EFECTO HOVER PARA LA SOLAPA */
+.styled__FloatingTab-sc-1z3h1y0-2:hover {
+  background-color: var(--blue-accent) !important; /* Brillo al pasar el mouse [cite: 78] */
+}
+
+/* LA TARJETA DE CONTENIDO */
+.styled__ContactCard-sc-1z3h1y0-1 {
+  background: white;
+  width: 300px;
+  padding: 20px;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+}
+
+/* AJUSTES MOBILE [cite: 239-241] */
+@media (max-width: 768px) {
+  .styled__FixedContact-sc-1z3h1y0-0 {
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .styled__ContactCard-sc-1z3h1y0-1 {
+    width: 100vw;
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
+/* ===============================
+   OVERLAY FIX
+================================ */
+
+.styled__Overlay-sc-h8h5yx-0 {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* =====================================================
+           MENÚ HAMBURGUESA RESPONSIVO [cite: 98-117]
+           ===================================================== */
+        .styled__Hamburguer-sc-1p531bp-3 {
+            display: none !important; /* Oculto en desktop */
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        @media (max-width: 1024px) {
+            .styled__Hamburguer-sc-1p531bp-3 {
+                display: flex !important; /* Visible en móvil */
+            }
+
+            .styled__Menu-sc-xdixc-0 {
+                display: none; /* Oculto por defecto */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bpna-dark);
+                flex-direction: column !important;
+                padding: 20px;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .styled__Menu-sc-xdixc-0.active {
+                display: flex !important; /* Se muestra al activar [cite: 110-112] */
+            }
+
+            .styled__MenuItem-sc-12nlkq4-1 { width: 100%; text-align: center; margin: 10px 0; }
+        }
+
+/* SECCIÓN AUSPICIANTES - TAMAÑO MINI [cite: 195-216] */
+.sponsors-grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 1rem; 
+}
+
+.sponsors-grid img { 
+    width: 60px !important; /* Tamaño mini final */
+    max-width: 60px !important;
+    height: auto;
+    filter: color(100%); 
+    opacity: 0.5; 
+    transition: all 0.3s ease;
+}
+
+.sponsors-grid img:hover { 
+    filter: color(0%); 
+    opacity: 1; 
+    transform: scale(1.2); 
+}
+
+/* Responsivo para móviles [cite: 242-245] */
+@media (max-width: 768px) {
+    .sponsors-grid img {
+        width: 50px !important;
+    }
+}
+
+        /* =====================================================
+           FOOTER (DISEÑO FINAL SOLICITADO) [cite: 797-858]
+           ===================================================== */
+        .footer-bpna { background-color: var(--bpna-dark); color: var(--bpna-celeste); padding: 5rem 0 2rem; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        
+        @media (max-width: 768px) {
+            .footer-container { grid-template-columns: 1fr; text-align: center; }
+            .footer-logo-link { justify-content: center; }
+        }
+
+        /* LOGO HOVER GLOW */
+        .footer-logo-link img { transition: 0.4s; filter: brightness(1); }
+        .footer-logo-link:hover img { filter: brightness(1.6) drop-shadow(0 0 10px var(--bpna-celeste)); }
+
+
     </style>
     
 </head>
+<script>
+    /* PARCHE DEFINITIVO PARA WARNINGS DE TOUCH [cite: 889-903] */
+    (function() {
+        var supportsPassive = false;
+        try {
+            var opts = Object.defineProperty({}, 'passive', {
+                get: function() { supportsPassive = true; }
+            });
+            window.addEventListener("testPassive", null, opts);
+            window.removeEventListener("testPassive", null, opts);
+        } catch (e) {}
+
+        var originalAddEventListener = EventTarget.prototype.addEventListener;
+        EventTarget.prototype.addEventListener = function(type, listener, options) {
+            var useSeparator = (type === 'touchstart' || type === 'touchmove' || type === 'wheel' || type === 'mousewheel');
+            if (useSeparator && supportsPassive) {
+                if (typeof options === 'boolean') {
+                    options = { capture: options, passive: true };
+                } else if (typeof options === 'object') {
+                    options.passive = true;
+                } else if (options === undefined || options === null) {
+                    options = { passive: true };
+                }
+            }
+            return originalAddEventListener.call(this, type, listener, options);
+        };
+    })();
+</script>
 
 <div id="loginModal" class="modal-overlay">
     <div class="modal-content">
@@ -701,6 +992,7 @@ background-color: #1c1c1c;
 </div>
 
 
+
 <body>
     <div id="__next">
         <header class="styled__Header-sc-1p531bp-0 cjbqjg">
@@ -727,6 +1019,9 @@ background-color: #1c1c1c;
                                         <div class="styled__IconWrapper-sc-1arhukx-1 hodNuF">
                                             <i class="styled__Icon-sc-1656qox-0 gCNhxO font-grassroots icon-chevronDown"></i>
                                         </div>
+                                        <div class="styled__Hamburguer-sc-1p531bp-3 kZpNST" id="mobile-burger-btn">
+                    <i class="styled__Icon-sc-1656qox-0 bpLZsN font-grassroots icon-burger"></i>
+                </div>
                                     </div>
                                 </div>
                             </div>
@@ -1360,19 +1655,22 @@ background-color: #1c1c1c;
     </div>
     <script>
         function toggleContactForm() {
-            var contact = document.getElementById('fixed-contact');
-            // Si la vista es móvil (menos de 768px), alterna la visibilidad/posición.
-            if (window.innerWidth < 768) {
-                if (contact.style.transform === 'translateX(0px)') {
-                    contact.style.transform = 'translateX(calc(100% - 40px))';
-                } else {
-                    contact.style.transform = 'translateX(0px)';
-                }
-            } else {
-                 // En desktop, simplemente redirige a la sección de formulario.
-                 window.location.href = '#section_inscription';
-            }
-        }
+    var contact = document.getElementById('fixed-contact');
+    
+    // Si la vista es móvil (menos de 768px), alterna la clase para que emerja
+    if (window.innerWidth < 768) {
+        contact.classList.toggle('active');
+    } else {
+        // En desktop, mantenemos tu lógica de redirigir o también puedes usar el toggle
+        window.location.href = '#section_inscription';
+    }
+}
+
+// Asignar el evento al hacer clic en la solapa
+document.getElementById('floating-tab').onclick = function(e) {
+    e.preventDefault();
+    toggleContactForm();
+};
         
         // Asignar función a la pestaña (solo redirige, el hover CSS se encarga del despliegue en desktop)
         document.getElementById('floating-tab').onclick = function() {
@@ -1417,11 +1715,74 @@ background-color: #1c1c1c;
             closeLogin();
         }
     }
+
+    
 </script>
 
     
     
     <div class="styled__Overlay-sc-h8h5yx-0 gFFWiA"><div></div></div>
 </div>
+<script>
+    /* 1. SOLUCIÓN DEFINITIVA A LOS WARNINGS DE CHROME (PASIVE LISTENERS) */
+    (function() {
+        var originalAddEventListener = EventTarget.prototype.addEventListener;
+        EventTarget.prototype.addEventListener = function(type, listener, options) {
+            if (type === 'touchstart' || type === 'touchmove') {
+                if (typeof options === 'boolean') {
+                    options = { capture: options, passive: true };
+                } else if (typeof options === 'object') {
+                    options.passive = true;
+                } else {
+                    options = { passive: true };
+                }
+            }
+            originalAddEventListener.call(this, type, listener, options);
+        };
+    })();
+
+    /* 2. LÓGICA DEL MENÚ HAMBURGUESA Y MODALES */
+    document.addEventListener('DOMContentLoaded', function() {
+        var burgerBtn = document.getElementById('burger-btn');
+        var mainMenu = document.getElementById('main-menu');
+
+        if (burgerBtn && mainMenu) {
+            burgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mainMenu.classList.toggle('active');
+            });
+        }
+
+        // Funciones globales para modales [cite: 925-933]
+        window.openLogin = function() {
+            document.getElementById('loginModal').style.display = 'flex';
+        };
+        window.closeLogin = function() {
+            document.getElementById('loginModal').style.display = 'none';
+        };
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var burgerBtn = document.getElementById('burger-btn');
+        var mainMenu = document.getElementById('main-menu');
+
+        if (burgerBtn && mainMenu) {
+            burgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mainMenu.classList.toggle('active');
+            });
+        }
+        
+        // Cerrar menú al tocar un link [cite: 236-238]
+        var navLinks = document.querySelectorAll('#main-menu a');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                mainMenu.classList.remove('active');
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
