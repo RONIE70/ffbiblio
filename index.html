@@ -40,6 +40,49 @@
         gap: 20px !important;
     }
 
+    /* ===== AJUSTES GENERALES MOBILE ===== */
+@media (max-width: 768px) {
+
+  /* HERO */
+  #section_presentation .styled__Content-sc-1js1vjm-1 {
+    text-align: center;
+  }
+
+  #section_presentation img {
+    margin: 0 auto 16px !important;
+  }
+
+  #section_presentation h1,
+  #section_presentation h3,
+  #section_presentation p {
+    text-align: center !important;
+  }
+
+  #section_presentation button {
+    margin: 0 auto;
+  }
+
+  /* GRILLAS A COLUMNA */
+  .hero-grid,
+  .styled__Layout-sc-1wxkjhz-1 {
+    grid-template-columns: 1fr !important;
+    justify-items: center;
+  }
+}
+
+
+@media (max-width: 768px) {
+  section, .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  h1, h2, h3, p {
+    text-align: center;
+  }
+}
+
+
     /* Específico para Sponsors [cite: 242-245] */
     .sponsors-grid {
         grid-template-columns: repeat(2, 1fr) !important; /* 2 filas de logos en móvil */
@@ -832,40 +875,51 @@ img {
   overflow-x: hidden;
 }
 
+/* ============================
+   MENÚ HAMBURGUESA RESPONSIVE LIMPIO
+============================ */
+
+/* Desktop */
+.styled__Hamburguer-sc-1p531bp-3 {
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+
+  .styled__Hamburguer-sc-1p531bp-3 {
+    display: flex;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .styled__Menu-sc-xdixc-0 {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1c1c1c;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  .styled__Menu-sc-xdixc-0.active {
+    display: flex;
+  }
+
+  .styled__MenuItem-sc-12nlkq4-1 {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+
 /* =====================================================
-           MENÚ HAMBURGUESA RESPONSIVO [cite: 98-117]
-           ===================================================== */
-        .styled__Hamburguer-sc-1p531bp-3 {
-            display: none !important; /* Oculto en desktop */
-            cursor: pointer;
-            z-index: 1100;
-        }
+   SECCIÓN AUSPICIANTES - TAMAÑO MINI [cite: 195-216]
+  ===================================================== */
 
-        @media (max-width: 1024px) {
-            .styled__Hamburguer-sc-1p531bp-3 {
-                display: flex !important; /* Visible en móvil */
-            }
-
-            .styled__Menu-sc-xdixc-0 {
-                display: none; /* Oculto por defecto */
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--bpna-dark);
-                flex-direction: column !important;
-                padding: 20px;
-                border-top: 1px solid rgba(255,255,255,0.1);
-            }
-
-            .styled__Menu-sc-xdixc-0.active {
-                display: flex !important; /* Se muestra al activar [cite: 110-112] */
-            }
-
-            .styled__MenuItem-sc-12nlkq4-1 { width: 100%; text-align: center; margin: 10px 0; }
-        }
-
-/* SECCIÓN AUSPICIANTES - TAMAÑO MINI [cite: 195-216] */
 .sponsors-grid { 
     display: flex; 
     flex-wrap: wrap; 
@@ -911,6 +965,407 @@ img {
         .footer-logo-link img { transition: 0.4s; filter: brightness(1); }
         .footer-logo-link:hover img { filter: brightness(1.6) drop-shadow(0 0 10px var(--bpna-celeste)); }
 
+/* =====================================================
+   FIX RESPONSIVE NAVBAR + LANDING MOBILE
+   ===================================================== */
+
+/* Evita desbordes horizontales */
+html, body {
+  overflow-x: hidden;
+}
+
+/* ---------- NAVBAR ---------- */
+
+/* Desktop */
+.styled__Hamburguer-sc-1p531bp-3 {
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+
+  /* Mostrar hamburguesa */
+  .styled__Hamburguer-sc-1p531bp-3 {
+    display: flex !important;
+    cursor: pointer;
+    z-index: 2000;
+  }
+
+  /* Ocultar menú horizontal */
+  .styled__Menu-sc-xdixc-0 {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1c1c1c;
+    flex-direction: column !important;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  /* Menú activo */
+  .styled__Menu-sc-xdixc-0.active {
+    display: flex !important;
+  }
+
+  .styled__MenuItem-sc-12nlkq4-1 {
+    width: 100%;
+    text-align: center;
+    margin: 12px 0;
+  }
+}
+
+/* ---------- LANDING CENTRADA MOBILE ---------- */
+
+@media (max-width: 768px) {
+  section,
+  .styled__Container-sc-1js1vjm-0 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  h1, h2, h3, p {
+    text-align: center;
+  }
+}
+
+/* ---------- SPONSORS ---------- */
+
+.sponsors-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.sponsors-grid img {
+  width: 60px;
+  opacity: 0.6;
+  transition: .3s;
+}
+
+.sponsors-grid img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ---------- BURGER ---------- */
+/* ===== BOTÓN HAMBURGUESA VISIBLE ===== */
+.mobile-burger {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 4000;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.3);
+  border-radius: 8px;
+  border: none;
+
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* ÍCONO */
+.mobile-burger i {
+  font-size: 26px;
+  color: #ffffff;
+}
+
+
+.mobile-burger {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .mobile-burger {
+    display: flex;
+    align-items: center;
+    z-index: 3000;
+  }
+
+  /* ocultamos desktop menu */
+  .styled__Menu-sc-xdixc-0 {
+    display: none !important;
+  }
+}
+
+.mobile-burger {
+  background: linear-gradient(135deg, #0056b3, #1e90ff);
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+}
+
+
+/* ---------- MOBILE MENU ---------- */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  transform: translateX(100%);
+  transition: transform .3s ease;
+  z-index: 2500;
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+.mobile-menu a {
+  font-size: 18px;
+}
+
+/* OCULTAR MENÚ DESKTOP EN MOBILE */
+@media (max-width: 1024px) {
+  .styled__Menu-sc-xdixc-0 {
+    display: none !important;
+  }
+
+  .mobile-burger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 3000;
+  }
+}
+
+/* DESKTOP */
+.mobile-burger {
+  display: none;
+}
+
+/* =========================
+   MENU MOBILE - BPNA
+========================= */
+
+/* Ocultar burger en desktop */
+.mobile-burger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 1024px) {
+
+  /* Oculta menú horizontal */
+  #main-menu {
+    display: none !important;
+  }
+
+  /* Muestra hamburguesa */
+  .mobile-burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+/* Overlay menu */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 3000;
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+.mobile-menu a {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ===== HAMBURGUESA ANIMADA ===== */
+.mobile-burger {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 4000;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+
+  background: rgba(0,0,0,0.35);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mobile-burger span {
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  transition: all .3s ease;
+}
+
+/* ESTADO ABIERTO → ✕ */
+.mobile-burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* 1. BASE DEL FOOTER [cite: 254-261, 801] */
+.styled__Footer-sc-c5zqxf-0.htZpYt {
+    background-color: var(--color-dark-background) !important;
+    padding: 4rem 0 2rem 0;
+    width: 100%;
+}
+
+/* 2. CONTENEDOR DE COLUMNAS CENTRADO [cite: 802, 1358] */
+.footer-container-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 50px; /* Espacio entre columnas */
+    max-width: 1100px; /* Ancho máximo para evitar dispersión */
+    margin: 0 auto !important; /* CENTRADO AUTOMÁTICO */
+    padding: 0 25px;
+}
+
+/* 3. ALINEACIÓN DE REDES SOCIALES  */
+.footer-social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.footer-social-icons img {
+    width: 24px !important;
+    height: 24px !important;
+    filter: brightness(0) invert(1); /* Hace los iconos blancos */
+    transition: 0.3s;
+}
+
+.footer-social-icons img:hover {
+    transform: translateY(-3px);
+    filter: brightness(1); /* Recupera color original al hover */
+}
+
+/* 4. RESPONSIVE: APILADO Y CENTRADO EN MÓVIL [cite: 803-806] */
+@media (max-width: 1024px) {
+    .footer-container-grid {
+        grid-template-columns: 1fr !important; /* Una sola columna */
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .footer-social-icons {
+        justify-content: center; /* Centra iconos en móvil */
+    }
+    
+    .footer-column img {
+        margin: 0 auto; /* Centra logo en móvil */
+    }
+}
+/* 1. Ajuste del Contenedor Principal  */
+.footer-container-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 40px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 25px 3rem 25px !important;
+    align-items: start;
+}
+
+/* 2. CENTRADO DE CADA COLUMNA INDIVIDUAL */
+.footer-column {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Centra horizontalmente el contenido */
+    text-align: center !important;  /* Centra el texto */
+}
+
+
+/* 4. Ajuste del Logo en el Footer [cite: 1360-1365] */
+.footer-column .styled__Logo-sc-bd6ij4-0 {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100%;
+}
+/* 1. Ajuste del Contenedor Principal  */
+.footer-container-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 40px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 25px 3rem 25px !important;
+    align-items: start;
+}
+
+/* 2. CENTRADO DE CADA COLUMNA INDIVIDUAL */
+.footer-column {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Centra horizontalmente el contenido */
+    text-align: center !important;  /* Centra el texto */
+}
+
+/* 3. Centrado de Listas y Redes Sociales [cite: 1369, 1379] */
+.footer-column ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los links del Mapa del Sitio */
+}
+
+.footer-social-icons {
+    display: flex !important;
+    justify-content: center !important; /* Centra los iconos de redes sociales */
+    gap: 20px !important;
+    margin-top: 15px !important;
+    width: 100%;
+    
+}
+
+/* 4. Ajuste del Logo en el Footer [cite: 1360-1365] */
+.footer-column .styled__Logo-sc-bd6ij4-0 {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100%;
+}
 
     </style>
     
@@ -942,6 +1397,7 @@ img {
             return originalAddEventListener.call(this, type, listener, options);
         };
     })();
+
 </script>
 
 <div id="loginModal" class="modal-overlay">
@@ -956,11 +1412,11 @@ img {
         <div id="section-login" class="auth-section active">
             <p style="text-align: center; color: #666; font-size: 14px; margin-bottom: 20px;">Bienvenido a B.P.N.A.</p>
             <form>
-                <label style="font-weight: 700; font-size: 12px; margin-left: 15px;">CORREO ELECTRÓNICO</label>
-                <input type="email" class="auth-input" placeholder="ejemplo@correo.com" required>
+                <label for="emaillog" style="font-weight: 700; font-size: 12px; margin-left: 15px;">CORREO ELECTRÓNICO</label>
+                <input id="emaillog" type="email" class="auth-input" placeholder="ejemplo@correo.com" autocomplete="email" required>
                 
-                <label style="font-weight: 700; font-size: 12px; margin-left: 15px;">CONTRASEÑA</label>
-                <input type="password" class="auth-input" placeholder="••••••••" required>
+                <label for="passwordlog" style="font-weight: 700; font-size: 12px; margin-left: 15px;">CONTRASEÑA</label>
+                <input id="passwordlog" type="password" class="auth-input" placeholder="••••••••"  autocomplete="new-password" required>
                 
                 <button type="submit" class="btn-auth-full">ENTRAR</button>
             </form>
@@ -969,14 +1425,14 @@ img {
         <div id="section-register" class="auth-section">
             <p style="text-align: center; color: #666; font-size: 14px; margin-bottom: 20px;">Únete a nuestra comunidad.</p>
             <form>
-                <label style="font-weight: 700; font-size: 12px; margin-left: 15px;">NOMBRE COMPLETO</label>
-                <input type="text" class="auth-input" placeholder="Tu nombre..." required>
+                <label for="namereg" style="font-weight: 700; font-size: 12px; margin-left: 15px;">NOMBRE COMPLETO</label>
+                <input id="namereg" type="text" class="auth-input" placeholder="Tu nombre..." autocomplete="name" required>
 
-                <label style="font-weight: 700; font-size: 12px; margin-left: 15px;">CORREO ELECTRÓNICO</label>
-                <input type="email" class="auth-input" placeholder="ejemplo@correo.com" required>
+                <label for="emailreg" style="font-weight: 700; font-size: 12px; margin-left: 15px;">CORREO ELECTRÓNICO</label>
+                <input id="emailreg"  type="email" class="auth-input" placeholder="ejemplo@correo.com" autocomplete="email" required>
                 
-                <label style="font-weight: 700; font-size: 12px; margin-left: 15px;">CONTRASEÑA</label>
-                <input type="password" class="auth-input" placeholder="Crear contraseña" required>
+                <label for="passwordreg" tyle="font-weight: 700; font-size: 12px; margin-left: 15px;">CONTRASEÑA</label>
+                <input id="passwordreg" type="password" class="auth-input" placeholder="Crear contraseña" autocomplete="new-password" required>
                 
                 <button type="submit" class="btn-auth-full">REGISTRARME</button>
             </form>
@@ -994,38 +1450,13 @@ img {
 
 
 <body>
-    <div id="__next">
+    
         <header class="styled__Header-sc-1p531bp-0 cjbqjg">
-            <div class="styled__Container-sc-1js1vjm-0 hdvoEO">
-                <div class="styled__Content-sc-1js1vjm-1 fhloVf">
-                    <div class="styled__Layout-sc-1p531bp-1 bqEvEy">
-                        <div class="styled__Logo-sc-1p531bp-2 ciOpmG">
-                            <div class="styled__Logo-sc-bd6ij4-0 eVgvhL">
-                                
-                            </div>
-                        </div>
                         
-                        <div class="styled__Menu-sc-xdixc-0 dlXIww">
-                            
-                            <div class="styled__WrapperMenu-sc-12nlkq4-0 bGRQro"> 
-                                <div class="styled__MenuItem-sc-12nlkq4-1 ivyAaL">
-                                    <div class="styled__MenuComponent-sc-1arhukx-0 eGyfyU">
-                                        <span class="styled__Text-sc-1qhsl9u-0 bmeWEU">
-                                            <div class="styled__LangMenu-sc-xdixc-2 dgOplQ">
-                                                <i class="styled__Icon-sc-1656qox-0 faoSyU font-grassroots icon-illustrationInternational"></i>
-                                                <span class="styled__Text-sc-1qhsl9u-0 bmeWEU">ESP</span>
-                                            </div>
-                                        </span>
-                                        <div class="styled__IconWrapper-sc-1arhukx-1 hodNuF">
-                                            <i class="styled__Icon-sc-1656qox-0 gCNhxO font-grassroots icon-chevronDown"></i>
-                                        </div>
-                                        <div class="styled__Hamburguer-sc-1p531bp-3 kZpNST" id="mobile-burger-btn">
-                    <i class="styled__Icon-sc-1656qox-0 bpLZsN font-grassroots icon-burger"></i>
-                </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <nav class="styled__Menu-sc-xdixc-0 dlXIww" id="main-menu">
 
+                            
+                        
                             <div class="styled__MenuItem-sc-12nlkq4-1 ivyAaL">
                                 <a class="styled__AStyled-sc-efe4a7-0 fXWfAH" href="#section_marketing">
                                     <div class="styled__MenuComponent-sc-1arhukx-0 eGyfyU">
@@ -1065,19 +1496,32 @@ img {
                                 </a>
                             </div>
 
-                        </div>
-                        <div class="styled__Hamburguer-sc-1p531bp-3 kZpNST">
-                            <i class="styled__Icon-sc-1656qox-0 bpLZsN font-grassroots icon-burger"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+                        </nav>
 
-        <main>
-            <div id="section_presentation" class="styled__Root-sc-1wxkjhz-0 fBSgKp">
-    <div>
-        <div class="styled__Container-sc-1js1vjm-0 hdvoEO">
+                        <!-- BOTÓN HAMBURGUESA (SOLO MOBILE) -->
+                        <div class="mobile-burger" id="mobile-burger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+           
+        </header>
+                            <!-- MENÚ MOBILE OVERLAY -->
+                        <nav class="mobile-menu" id="mobile-menu">
+
+                        <a href="#section_marketing">SPONSOR</a>
+                        <a href="#section_activities_list">ACTIVIDADES</a>
+                        <a href="#section_library">ALQUILERES</a>
+                        <a href="#contact_container_grid">CONTACTO</a>
+                        <a href="javascript:void(0)" onclick="openLogin()">INGRESAR</a>
+
+                        </nav>
+
+    <main>
+        <div id="section_presentation" class="styled__Root-sc-1wxkjhz-0 fBSgKp">
+    
+         <div class="styled__Container-sc-1js1vjm-0 hdvoEO">
             <div class="styled__Content-sc-1js1vjm-1 fhlqfr">
                 
                 <div style="display: grid; grid-template-columns: 200px 1fr; gap: 30px; align-items: flex-start;">
@@ -1111,7 +1555,7 @@ img {
     </div>
     <div class="styled__StripePosition-sc-1wxkjhz-4 faEptO"></div>
 </div>
-        <!-- =======================
+<!-- =======================
      AUSPICIANTES / SPONSORS
 ======================== -->
 <section class="sponsors">
@@ -1407,7 +1851,7 @@ img {
                                                             <span class="styled__Text-sc-1qhsl9u-0 fIiwcR">Nombre Completo</span>
                                                         </label>
                                                         <div class="styled__InputAnchor-sc-1azvykq-0 dpppFH">
-                                                            <input type="text" name="name" id="name" placeholder="Nombre Completo" class="styled__Input-sc-1azvykq-1 ccjosk" />
+                                                            <input type="text" name="name" id="name" autocomplete="name"placeholder="Nombre Completo" class="styled__Input-sc-1azvykq-1 ccjosk" />
                                                         </div>
                                                     </div>
                                                     
@@ -1416,7 +1860,7 @@ img {
                                                             <span class="styled__Text-sc-1qhsl9u-0 fIiwcR">E-mail de contacto</span>
                                                         </label>
                                                         <div class="styled__InputAnchor-sc-1azvykq-0 dpppFH">
-                                                            <input type="email" name="email" id="email" placeholder="E-mail de contacto" class="styled__Input-sc-1azvykq-1 ccjosk" />
+                                                            <input type="email" name="email" id="email" autocomplete="email" placeholder="E-mail de contacto" class="styled__Input-sc-1azvykq-1 ccjosk" />
                                                         </div>
                                                     </div>
                                                     
@@ -1425,7 +1869,7 @@ img {
                                                             <span class="styled__Text-sc-1qhsl9u-0 fIiwcR">Teléfono de contacto</span>
                                                         </label>
                                                         <div class="styled__InputAnchor-sc-1azvykq-0 dpppFH">
-                                                            <input type="tel" id="phone" placeholder="+54 9 11 XXXX XXXX" class="styled__Input-sc-1azvykq-1 ccjosk" />
+                                                            <input type="tel" id="phone" autocomplete="phone" placeholder="+54 9 11 XXXX XXXX" class="styled__Input-sc-1azvykq-1 ccjosk" />
                                                         </div>
                                                     </div>
 
@@ -1547,12 +1991,12 @@ img {
                     </li>
 
                 </ul>
-            </div>
+             </div>
 
+            </div>
         </div>
     </div>
-</div>
-        </main>
+</main>
 
         <footer class="styled__Footer-sc-c5zqxf-0 htZpYt" style="background-color: var(--color-dark-background) !important; padding-top: 4rem;">
     <div class="styled__Container-sc-1js1vjm-0 hdvoEO">
@@ -1562,7 +2006,7 @@ img {
                 
                 <div class="footer-column">
                     <div class="styled__Logo-sc-bd6ij4-0 eVgvhL" style="margin-bottom: 20px;">
-                        <a href="/" style="display: flex; align-items: center; text-decoration: none;">
+                        <a href="/" style=" justify-content: space-around;  display: flex; align-items: center; text-decoration: none;">
                             <img src="./img/biblioteca.png" alt="Logo B.P.N.A." style="width: 60px; height: 60px; margin-right: 12px;">
                             <span class="styled__Text-sc-1qhsl9u-0 bmeWEU" style="color: #ffffff !important; font-size: 20px; font-weight: 800;">B.P.N.A.</span>
                         </a>
@@ -1594,14 +2038,14 @@ img {
                 <div class="footer-column">
                     <h4 class="styled__Text-sc-1qhsl9u-0 fIiwcR" style="color: #ffffff !important; font-weight: 700; margin-bottom: 15px; font-size: 18px;">NUESTRA SEDE</h4>
                     
-                    <div style="width: 100%; height: 150px; border-radius: 8px; overflow: hidden; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                    <div style="width: 90%; height: 140px; border-radius: 8px; overflow: hidden; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.9546261596775!2d-58.3846618!3d-34.6810795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccce59868e82f%3A0x6b1f2b6e15998a4!2sPi%C3%B1eiro%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" 
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
 
-                    <p style="color: var(--color-footer-links); font-size: 13px; margin-bottom: 15px;">
+                    <p style="color: var(--color-highlight-blue); font-size: 13px; margin-bottom: 15px;">
                         Visitanos en nuestra sede central de Piñeiro.
                     </p>
                     
@@ -1615,12 +2059,12 @@ img {
             </div>
 
             <div style="border-top: 1px solid rgba(255,255,255,0.1); padding: 20px 0;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
                     <div style="display: flex; gap: 20px;">
-                        <a href="/politica" style="color: var(--color-footer-links); font-size: 12px; text-decoration: none;">Privacidad</a>
-                        <a href="/legal" style="color: var(--color-footer-links); font-size: 12px; text-decoration: none;">Aviso legal</a>
+                        <a href="/politica" style="color: var(--color-primary-blue); font-size: 12px; text-decoration: none;">Privacidad</a>
+                        <a href="/legal" style="color: var(--color-primary-blue); font-size: 12px; text-decoration: none;">Aviso legal</a>
                     </div>
-                    <span style="color: var(--color-footer-links); font-size: 12px;">B.P.N.A. © 2025 | Todos los derechos reservados</span>
+                    <span style="color: var(--color-primary-blue); font-size: 18px;">B.P.N.A. © 2025 | Todos los derechos reservados - Creado por Digital Scorpions</span>
                 </div>
             </div>
 
@@ -1717,72 +2161,50 @@ document.getElementById('floating-tab').onclick = function(e) {
     }
 
     
-</script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.querySelector('.styled__Hamburguer-sc-1p531bp-3');
+        const menu = document.querySelector('.styled__Menu-sc-xdixc-0');
 
-    
-    
-    <div class="styled__Overlay-sc-h8h5yx-0 gFFWiA"><div></div></div>
-</div>
-<script>
-    /* 1. SOLUCIÓN DEFINITIVA A LOS WARNINGS DE CHROME (PASIVE LISTENERS) */
-    (function() {
-        var originalAddEventListener = EventTarget.prototype.addEventListener;
-        EventTarget.prototype.addEventListener = function(type, listener, options) {
-            if (type === 'touchstart' || type === 'touchmove') {
-                if (typeof options === 'boolean') {
-                    options = { capture: options, passive: true };
-                } else if (typeof options === 'object') {
-                    options.passive = true;
-                } else {
-                    options = { passive: true };
-                }
-            }
-            originalAddEventListener.call(this, type, listener, options);
-        };
-    })();
-
-    /* 2. LÓGICA DEL MENÚ HAMBURGUESA Y MODALES */
-    document.addEventListener('DOMContentLoaded', function() {
-        var burgerBtn = document.getElementById('burger-btn');
-        var mainMenu = document.getElementById('main-menu');
-
-        if (burgerBtn && mainMenu) {
-            burgerBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                mainMenu.classList.toggle('active');
-            });
+        if (burger) {
+            burger.onclick = () => {
+                menu.classList.toggle('active');
+            };
         }
-
-        // Funciones globales para modales [cite: 925-933]
-        window.openLogin = function() {
-            document.getElementById('loginModal').style.display = 'flex';
-        };
-        window.closeLogin = function() {
-            document.getElementById('loginModal').style.display = 'none';
-        };
     });
+
 </script>
+
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var burgerBtn = document.getElementById('burger-btn');
-        var mainMenu = document.getElementById('main-menu');
+document.addEventListener('DOMContentLoaded', () => {
+  const burger = document.getElementById('mobile-burger');
+  const menu   = document.getElementById('mobile-menu');
 
-        if (burgerBtn && mainMenu) {
-            burgerBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                mainMenu.classList.toggle('active');
-            });
-        }
-        
-        // Cerrar menú al tocar un link [cite: 236-238]
-        var navLinks = document.querySelectorAll('#main-menu a');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                mainMenu.classList.remove('active');
-            });
-        });
+  if (!burger || !menu) return;
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    menu.classList.toggle('active');
+
+    // Bloquea scroll del body
+    document.body.style.overflow =
+      menu.classList.contains('active') ? 'hidden' : '';
+  });
+
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('active');
+      burger.classList.remove('active');
+      document.body.style.overflow = '';
     });
+  });
+});
 </script>
+
+
+
+
 
 </body>
 </html>
+
